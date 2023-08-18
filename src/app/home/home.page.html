@@ -38,7 +38,11 @@
           <ion-item>
             <ion-toggle aria-label="Success toggle" color="success" [checked]="true">Recuerdame</ion-toggle>
           </ion-item><br>
-          <ion-button (click)="mostrarConsola()" size="small" shape="round">Conectar</ion-button><br>
+          <ion-button (click)="enviarInformacion()" size="small" shape="round">Conectar</ion-button><br>
+          <br>
+          <ion-button [routerLink]="['/login']" shape="round" size="small">
+            Redirect
+          </ion-button>
           <h1>{{mensaje}}</h1><br>
         </ion-list>
       </ion-card-content>

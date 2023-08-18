@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router, NavigationExtras } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   public mensaje = "Hola soy el nuevo mensaje :3"
 
@@ -16,6 +16,13 @@ export class HomePage {
     password: ""
   }
 
+
+  enviarInformacion() {
+    let navigationExtras: NavigationExtras = {
+      state: { user: this.user }
+    }
+    this.router.navigate(['/login'], navigationExtras);
+  }
   mostrarConsola() {
     console.log(this.user);
     if (this.user.usuario != "" && this.user.password != "") {
@@ -24,4 +31,5 @@ export class HomePage {
       this.mensaje = "Usuario y contraseña deben tener algun valor"
     }
   }
+
 }
