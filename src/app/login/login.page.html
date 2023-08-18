@@ -13,9 +13,34 @@
       <ion-title size="large">login</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div>
-    <h1>
-      Pantalla de login
+  <div id="container">
+    <h1 id="titulo">
+      Bienvenido!
     </h1>
+    <ion-label>Usuario: {{user.usuario}}</ion-label><br><br>
+
+    <ion-list id="formulario">
+      <ion-label id="sub">Informacion Adicional</ion-label><br>
+      <ion-input [(ngModel)]="informacion.nombre" type="text" expand="full" label="Nombre" placeholder="Ingrese Nombre"
+        slot="start"></ion-input>
+      <ion-input [(ngModel)]="informacion.apellido" type="text" expand="full" label="Apellido"
+        placeholder="Ingrese Apellido" slot="start"></ion-input>
+      <ion-select [(ngModel)]="informacion.nivel" label="Nivel Educacional" interface="action-sheet"
+        placeholder="Seleccione Opcion" slot="center">
+        <ion-select-option value="Basica">Basica</ion-select-option>
+        <ion-select-option value="Media">Media</ion-select-option>
+        <ion-select-option value="Profesional">Profesional</ion-select-option>
+        <ion-select-option value="Universitaria">Universitaria</ion-select-option>
+      </ion-select>
+      <ion-input [(ngModel)]="informacion.fecha" type="date" expand="full" label="Fecha Nacimiento"
+        placeholder="Ingrese Fecha" slot="start">
+      </ion-input>
+      <ion-button id="present-alert">
+        Mostrar
+      </ion-button>
+    </ion-list>
   </div>
+  <ion-alert trigger="present-alert" 
+    header="Usuario"
+    subHeader="Su nombre es {{informacion.nombre}} {{informacion.apellido}}" [buttons]="alertButtons"></ion-alert>
 </ion-content>

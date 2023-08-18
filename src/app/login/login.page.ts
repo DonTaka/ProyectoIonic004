@@ -8,9 +8,17 @@ import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 export class LoginPage implements OnInit {
 
   constructor(private router: Router, private activatedRouter: ActivatedRoute) { }
+
+  public alertButtons = ['OK'];
   public user = {
     usuario: "",
     password: ""
+  }
+  public informacion = {
+    nombre: "",
+    apellido: "",
+    nivel: "",
+    fecha: ""
   }
 
   ngOnInit() {

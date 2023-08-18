@@ -1,11 +1,20 @@
 #container {
   text-align: center;
-
+  font-family: 'Courier New', Courier, monospace;
   position: absolute;
   left: 0;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  padding: 30px;
+
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+  text-align: center;
+}
+
+#container h1 {
+  margin-top: auto;
 }
 
 #container strong {
@@ -16,22 +25,47 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-
+  font-family: 'Courier New', Courier, monospace;
   color: #8c8c8c;
 
   margin: 0;
 }
 
-#titulo {
-  margin-left: 70px;
-}
-
 #container a {
   text-decoration: none;
+  font-size: 20px;
+
 }
 
-#avatar {
+#titulo {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 48px;
+
+}
+
+#sub {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 24px;
+
+}
+
+ion-title {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+  text-align: center;
+}
+
+#icono {
+  text-align: center;
   margin: auto;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
+}
+
+#formulario {
+  padding: 15px;
 }
