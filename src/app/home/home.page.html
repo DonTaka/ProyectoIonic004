@@ -14,15 +14,17 @@
   </ion-header>
 
   <div id="container">
-    <ion-avatar id="avatar">
+    <ion-avatar id="avatar" #avatar>
       <img alt="Silhouette of a person's head"
         src="https://i.pinimg.com/550x/4c/46/fe/4c46fee91f13d953d061c5b1caa8bee0.jpg" />
     </ion-avatar>
+    <ion-button (click)="play()" shape="round">
+      Clickeame
+    </ion-button>
     <ion-card>
       <ion-card-header>
         <ion-card-title>Credenciales</ion-card-title>
       </ion-card-header>
-
       <ion-card-content>
         <ion-list>
 
