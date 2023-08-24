@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
+import { Animation, AnimationController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-home',
@@ -7,11 +9,15 @@ import { Router, NavigationExtras } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-  constructor(private router: Router) { }
+  @ViewChild('titulo', { read: ElementRef }) titulo!: ElementRef;
+  private animation!: Animation;
+  constructor(private router: Router, private animationControl: AnimationController) { }
 
   public mensaje = ""
 
+  ngAfterViewInit() {
+    this.animation = this.animationControl.create().addElement(this.titulo.nativeElement)
+  }
   user = {
     usuario: "",
     password: ""
