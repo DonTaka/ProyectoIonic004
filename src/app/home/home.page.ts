@@ -1,6 +1,7 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component,ElementRef,ViewChild} from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
-
+import { IonAvatar,AnimationController} from '@ionic/angular';
+import type { Animation } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,15 +9,27 @@ import { Router, NavigationExtras } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private router: Router) { }
-
+  //ViewChild(TipoComponente,{read:ElementRef}) nombre!:ElementRef<HTMLTipoObjetoElement>
+  @ViewChild(IonAvatar,{read:ElementRef}) avatar!:ElementRef<HTMLIonAvatarElement>;
+ 
+  constructor(private router: Router,private animationCtrl:AnimationController) { }
+  private animation!:Animation;
   public mensaje = ""
 
   ngAfterViewInit() {
+    this.animation = this.animationCtrl.create()
+    .addElement(this.avatar.nativeElement)
+    .duration(1500) 
+    .fromTo('transform', 'translateX(0px)', 'translateX(100px)')
+    .fromTo('opacity', '1', '0.2');
   }
   user = {
     usuario: "",
     password: ""
+  }
+  
+  avatarPlay(){
+    this.animation.play();
   }
 
   enviarInformacion() {
