@@ -1,6 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
-import { Animation, AnimationController } from '@ionic/angular';
 
 
 @Component({
@@ -9,14 +8,11 @@ import { Animation, AnimationController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  @ViewChild('titulo', { read: ElementRef }) titulo!: ElementRef;
-  private animation!: Animation;
-  constructor(private router: Router, private animationControl: AnimationController) { }
+  constructor(private router: Router) { }
 
   public mensaje = ""
 
   ngAfterViewInit() {
-    this.animation = this.animationControl.create().addElement(this.titulo.nativeElement)
   }
   user = {
     usuario: "",
