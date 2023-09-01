@@ -13,6 +13,7 @@
     </ion-toolbar>
   </ion-header>
 
+
   <div id="container">
     <ion-avatar id="avatar" #avatar>
       <img alt="Silhouette of a person's head"
@@ -20,7 +21,7 @@
     </ion-avatar>
     <ion-card>
       <ion-card-header>
-        <ion-card-title >Credenciales</ion-card-title>
+        <ion-card-title>Credenciales</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <ion-list>
@@ -35,6 +36,9 @@
             </ion-input>
           </ion-item>
           <ion-item>
+            <ion-input type="text" placeholder="Awesome Input"></ion-input>
+          </ion-item>
+          <ion-item>
             <ion-toggle aria-label="Success toggle" color="success" [checked]="true">Recuerdame</ion-toggle>
           </ion-item><br>
           <ion-item>
@@ -42,10 +46,15 @@
           </ion-item>
           <ion-button (click)="enviarInformacion()" size="small" shape="round">Conectar</ion-button><br>
           <br>
+          <ion-button id="open-modal" shape="round" size="small">
+            Registrarse
+          </ion-button><br>
+          <!--  
           <ion-button [routerLink]="['/login']" shape="round" size="small">
             Redirect
           </ion-button><br>
-          <ion-button (click)="playAvatar()" size="small" shape="round" >
+          -->
+          <ion-button (click)="playAvatar()" size="small" shape="round">
             Animar
           </ion-button>
           <div>
@@ -55,5 +64,38 @@
         </ion-list>
       </ion-card-content>
     </ion-card>
+
+
+    <ion-alert trigger="present-alert" header="Registro" subHeader="{{mensaje}}" 
+      [buttons]="alertButtons"></ion-alert>
+    <!-- Modal Section Begin -->
+    <ion-modal trigger="open-modal">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-button (click)="cancel()">Salir</ion-button>
+            </ion-buttons>
+            <ion-title>Registro</ion-title>
+            <ion-buttons slot="end" id="present-alert">
+              <ion-button (click)="confirm()" [strong]="true">Confirmar</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <ion-item>
+            <ion-input [(ngModel)]="user.usuario" label="Nombre Usuario" labelPlacement="floating"
+              placeholder="Ingrese su Usuario"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input [(ngModel)]="user.password" label="Contraseña" type="password" labelPlacement="floating"
+              placeholder="Ingrese su Contraseña"></ion-input>
+          </ion-item>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+    <!-- Modal Section End -->
+
+
   </div>
 </ion-content>

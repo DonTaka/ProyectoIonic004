@@ -1,6 +1,6 @@
 import { Component,ViewChild,ElementRef} from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
-import { IonAvatar } from '@ionic/angular';
+import { IonAvatar,IonModal } from '@ionic/angular';
 import type { Animation } from '@ionic/angular';
 import { AnimationController } from '@ionic/angular';
 @Component({
@@ -10,11 +10,14 @@ import { AnimationController } from '@ionic/angular';
 })
 export class HomePage {
   @ViewChild(IonAvatar,{read:ElementRef}) avatar!:ElementRef<HTMLIonAvatarElement>;
+  
+  @ViewChild(IonModal) modal!: IonModal;
 
   private animation!:Animation;
-  private animationn!:Animation;
   constructor(private router: Router,private animationCtrl:AnimationController) { }
   public mensaje = ""
+  
+  public alertButtons = ['OK'];
 
   ngAfterViewInit() {
     this.animation = this.animationCtrl.create()
@@ -28,10 +31,6 @@ export class HomePage {
       {offset:0.75, transform:'translateX(-100px)',opacity:'0.2'},
       {offset:1, transform:'translateX(0px)',opacity:'1'},
     ])
-
-
-    
-
   }
 
   user = {
@@ -60,6 +59,15 @@ export class HomePage {
     } else {
       this.mensaje = "Usuario y contraseña deben tener algun valor"
     }
+  }
+
+  cancel() {
+    this.modal.dismiss(null, 'cancel');
+  }
+
+  confirm() {
+    this.mensaje="Registro Exitoso"
+    this.modal.dismiss(this.user.usuario, 'confirm');
   }
 
 }
