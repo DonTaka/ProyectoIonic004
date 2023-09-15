@@ -18,7 +18,9 @@
       Bienvenido!
     </h1>
     <ion-label>Usuario: {{user.usuario}}</ion-label><br><br>
-
+    <div>
+      <ion-router-outlet></ion-router-outlet>
+    </div>
     <ion-list id="formulario">
       <ion-label id="sub">Informacion Adicional</ion-label><br>
       <ion-input [(ngModel)]="informacion.nombre" type="text" expand="full" label="Nombre" placeholder="Ingrese Nombre"

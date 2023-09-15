@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
+import { AuthGuard } from '../auth.guard';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -7,7 +8,7 @@ import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private router: Router, private activatedRouter: ActivatedRoute) { }
+  constructor(private router: Router, private activatedRouter: ActivatedRoute, private authGuard: AuthGuard) { }
 
   public alertButtons = ['OK'];
   public user = {
@@ -31,5 +32,6 @@ export class LoginPage implements OnInit {
       }
     })
   }
-
 }
+
+
