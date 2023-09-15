@@ -11,6 +11,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
+import { UsuarioComponent } from '../usuario/usuario.component';
+import { FooterComponent } from '../Base/footer/footer.component';
 
 
 @NgModule({
@@ -24,6 +26,6 @@ import { MatInputModule } from '@angular/material/input';
     MatDatepickerModule,
     MatNativeDateModule,
   ],
-  declarations: [LoginPage]
+  declarations: [LoginPage, FooterComponent]
 })
 export class LoginPageModule { }
