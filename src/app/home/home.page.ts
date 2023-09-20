@@ -69,6 +69,7 @@ export class HomePage {
 
   confirm() {
     this.mensaje = "Registro Exitoso"
+    this.auth.register(this.user.usuario, this.user.password);
     this.modal.dismiss(this.user.usuario, 'confirm');
   }
 
