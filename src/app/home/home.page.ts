@@ -44,15 +44,16 @@ export class HomePage {
   }
 
   enviarInformacion() {
-    this.auth.login(this.user.usuario, this.user.password)
-    if (this.auth.autenticado) {
-      let navigationExtras: NavigationExtras = {
-        state: { user: this.user }
+    this.auth.login(this.user.usuario, this.user.password).then(() => {
+      if (this.auth.autenticado) {
+        let navigationExtras: NavigationExtras = {
+          state: { user: this.user }
+        }
+        this.router.navigate(['/login'], navigationExtras);
+      } else {
+        this.mensaje = "Debe ingresar sus credenciales";
       }
-      this.router.navigate(['/login'], navigationExtras);
-    } else {
-      this.mensaje = "Debe ingresar sus credenciales";
-    }
+    });
   }
   mostrarConsola() {
     console.log(this.user);

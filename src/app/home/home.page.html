@@ -7,11 +7,6 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large" id="titulo">Menu De Ingreso</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
 
   <div id="container">
@@ -63,8 +58,7 @@
     </ion-card>
 
 
-    <ion-alert trigger="present-alert" header="Registro" subHeader="{{mensaje}}" 
-      [buttons]="alertButtons"></ion-alert>
+    <ion-alert trigger="present-alert" header="Registro" subHeader="{{mensaje}}" [buttons]="alertButtons"></ion-alert>
     <!-- Modal Section Begin -->
     <ion-modal trigger="open-modal">
       <ng-template>
