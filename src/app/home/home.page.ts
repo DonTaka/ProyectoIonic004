@@ -16,7 +16,8 @@ export class HomePage {
 
   private animation!: Animation;
   constructor(private router: Router, private animationCtrl: AnimationController, private auth: AutenticacionService) { }
-  public mensaje = ""
+  public mensaje = "";
+  public estado: String = "";
 
   public alertButtons = ['OK'];
 
@@ -69,9 +70,14 @@ export class HomePage {
   }
 
   confirm() {
-    this.mensaje = "Registro Exitoso"
-    this.auth.register(this.user.usuario, this.user.password);
-    this.modal.dismiss(this.user.usuario, 'confirm');
+    this.auth.register(this.user.usuario, this.user.password).then((res) => {
+      if (res) {
+        this.estado = "Usuario Existente";
+      } else {
+        this.mensaje = "Registro Exitoso";
+        this.modal.dismiss(this.user.usuario, 'confirm');
+      }
+    })
   }
 
 }

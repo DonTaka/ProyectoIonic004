@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular'
 
+//Generamos un modelo interface para el usuario que llamara la base de datos
 interface User {
   username: string;
   password: string;
@@ -14,29 +15,31 @@ interface User {
 export class AutenticacionService {
   public autenticado!: boolean;
 
-  private _storage!: Storage;
+  private local!: Storage;
 
   constructor(private storage: Storage, private route: Router) {
     this.init()
   }
-
+  //AL iniciar el modulo iniciamos el storage y guardamos la instancia en una variable local llamada local
   async init() {
     const storage = await this.storage.create();
-    this._storage = storage;
+    this.local = storage;
 
   }
 
   //Funcion Registrar Usuario
-  async register(username: string, password: string) {
-    const users = await this._storage?.get('users') || [];
+  async register(username: string, password: string): Promise<Boolean> {
+    const users = await this.local?.get('users') || [];
     const existe = users.find((us: User) => us.username === username && us.password === password);
     if (existe) {
       console.log("Usuario Existente")
+      return true;
     } else {
       const nuevo: User = { username, password };
       users.push(nuevo);
-      await this._storage.set('users', users);
+      await this.local.set('users', users);
       console.log("Registro Exitoso")
+      return false;
     }
   }
 
@@ -51,7 +54,7 @@ export class AutenticacionService {
   // Una promise puede tener los sig estados : Pendiente || Cumplida || Rechazada
   async login(username: string, password: string): Promise<boolean> {
     //Llamamos el arreglo desde el Storage
-    const users: User[] = (await this._storage.get('users')) || [];
+    const users: User[] = (await this.local.get('users')) || [];
     //obtenermos el valor del usuario que buscamos 
     const user = users.find((us: User) => us.username === username && us.password === password);
     //Si el usuario existe autentificamos y el metodo retorna true
