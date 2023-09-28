@@ -18,9 +18,14 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   },
   {
+    path: 'api-test',
+    loadChildren: () => import('./api-test/api-test.module').then(m => m.ApiTestPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./error-page/error-page.module').then(m => m.ErrorPagePageModule)
   },
+
 
 ];
 

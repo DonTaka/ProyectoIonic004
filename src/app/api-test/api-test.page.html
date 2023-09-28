@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>apiTest</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card id="carta">
+    <ion-item>
+      <ion-button (click)="obtenerTodo()" shape="square" size="large">
+        Obtener Todo
+      </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-button shape="square" size="large">
+        Obtener 1
+      </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-button shape="square" size="large">
+        Crear
+      </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-button shape="square" size="large">
+        Eliminar
+      </ion-button>
+    </ion-item>
+  </ion-card>
+</ion-content>

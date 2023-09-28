@@ -33,6 +33,9 @@ export class HomePage {
         { offset: 0.75, transform: 'translateX(-100px)', opacity: '0.2' },
         { offset: 1, transform: 'translateX(0px)', opacity: '1' },
       ])
+
+
+    this.animation.play();
   }
 
   user = {
@@ -40,9 +43,6 @@ export class HomePage {
     password: ""
   }
 
-  playAvatar() {
-    this.animation.play();
-  }
 
   enviarInformacion() {
     this.auth.login(this.user.usuario, this.user.password).then(() => {
