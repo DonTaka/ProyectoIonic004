@@ -21,7 +21,8 @@
 
   margin: 0;
 }
-#titulo{
+
+#titulo {
   margin-left: 70px;
 }
 
@@ -29,8 +30,12 @@
   text-decoration: none;
 }
 
-#avatar{
+#avatar {
   margin: auto;
   width: 200px;
   height: 200px;
+}
+
+ion-header {
+  text-align: center;
 }

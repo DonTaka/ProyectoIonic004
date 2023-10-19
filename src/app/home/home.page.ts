@@ -56,6 +56,7 @@ export class HomePage {
       }
     });
   }
+
   mostrarConsola() {
     console.log(this.user);
     if (this.user.usuario != "" && this.user.password != "") {
