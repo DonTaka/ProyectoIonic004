@@ -15,11 +15,14 @@ export class HomePage {
   @ViewChild(IonModal) modal!: IonModal;
 
   private animation!: Animation;
-  constructor(private router: Router, private animationCtrl: AnimationController, private auth: AutenticacionService) { }
+  constructor(private router: Router, private animationCtrl: AnimationController, private auth: AutenticacionService) {
+
+  }
   public mensaje = "";
   public estado: String = "";
 
   public alertButtons = ['OK'];
+
 
   ngAfterViewInit() {
     this.animation = this.animationCtrl.create()
@@ -57,14 +60,6 @@ export class HomePage {
     });
   }
 
-  mostrarConsola() {
-    console.log(this.user);
-    if (this.user.usuario != "" && this.user.password != "") {
-      this.mensaje = "Usuario Conectado";
-    } else {
-      this.mensaje = "Usuario y contraseña deben tener algun valor"
-    }
-  }
 
   cancel() {
     this.modal.dismiss(null, 'cancel');

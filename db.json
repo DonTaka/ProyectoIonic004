@@ -2,8 +2,21 @@
   "posts": [
     {
       "id": 1,
-      "titulo": "Objeto Prueba",
+      "titulo": "Objeto Angular",
       "autor": "DonTaka"
+    },
+    {
+      "id": "3",
+      "titulo": "Nuevo Titutlo",
+      "autor": "Nuevo Autor"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "user": "admin",
+      "pass": "admin",
+      "rol": "estudiante"
     }
   ]
 }

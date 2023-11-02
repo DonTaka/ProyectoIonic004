@@ -20,7 +20,8 @@ export class AutenticacionService {
   constructor(private storage: Storage, private route: Router) {
     this.init()
   }
-  //AL iniciar el modulo iniciamos el storage y guardamos la instancia en una variable local llamada local
+
+  //Al iniciar el modulo iniciamos el storage y guardamos la instancia en una variable local llamada local
   async init() {
     const storage = await this.storage.create();
     this.local = storage;
@@ -30,6 +31,7 @@ export class AutenticacionService {
   //Funcion Registrar Usuario
   async register(username: string, password: string): Promise<Boolean> {
     const users = await this.local?.get('users') || [];
+   
     const existe = users.find((us: User) => us.username === username && us.password === password);
     if (existe) {
       console.log("Usuario Existente")
@@ -60,6 +62,7 @@ export class AutenticacionService {
     //Si el usuario existe autentificamos y el metodo retorna true
     //caso contrario lanzamos false y no esta activo
     if (user) {
+      
       this.autenticado = true;
       return true;
     }
